@@ -25,7 +25,7 @@ SECRET_KEY = 'l7zm60u=i8(u%t!kz123*g=!w59dkb27$buja--s--eca_5itg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['frozen-peak-64797.herokuapp.com']
+ALLOWED_HOSTS = ['devnode-backend-test.herokuapp.com']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
