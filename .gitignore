@@ -2,3 +2,4 @@
 d_env
 app/migrations
 Pipfile.lock
+.coverage
