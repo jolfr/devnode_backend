@@ -1,3 +1,4 @@
 .idea
 d_env
 app/migrations
+Pipfile.lock

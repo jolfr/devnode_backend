@@ -25,7 +25,10 @@ SECRET_KEY = 'l7zm60u=i8(u%t!kz123*g=!w59dkb27$buja--s--eca_5itg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['devnode-backend-test.herokuapp.com']
+ALLOWED_HOSTS = [
+    'devnode-backend-test.herokuapp.com',
+    '127.0.0.1',
+]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
