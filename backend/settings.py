@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
-AUTH_USER_MODEL = 'app.User'
+AUTH_USER_MODEL = 'users.User'
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     # My apps
     'app',
+    'users',
 ]
 
 MIDDLEWARE = [

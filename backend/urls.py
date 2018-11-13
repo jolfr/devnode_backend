@@ -24,7 +24,6 @@ from users.views import login
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
 router.register(r'topics', views.TopicViewSet)
 router.register(r'entries', views.EntryViewSet)
 

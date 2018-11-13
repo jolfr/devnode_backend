@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 
-from .models import User
+from users.models import User
 from app.models import Topic, Entry
 from rest_framework import viewsets
 from app.serializers import UserSerializer, TopicSerializer, EntrySerializer
@@ -15,14 +15,6 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-
-
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
 
 
 class TopicViewSet(viewsets.ModelViewSet):

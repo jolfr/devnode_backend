@@ -1,6 +1,6 @@
 from app.models import Topic, Entry
 from rest_framework import serializers
-from .models import User
+from users.models import User
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

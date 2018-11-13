@@ -1,6 +1,8 @@
 .idea
 d_env
-app/migrations
+migrations
 Pipfile.lock
 .coverage
 htmlcov
+__pycache__
+db.sqlite3
