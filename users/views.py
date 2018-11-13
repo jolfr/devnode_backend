@@ -9,6 +9,7 @@ from rest_framework.status import (
     HTTP_200_OK
 )
 from rest_framework.response import Response
+from .auth import google_authenticate
 
 CLIENT_ID = '462887418296-9a67ol2li3j8nr918im4m9rjejmsommn.apps.googleusercontent.com'
 
@@ -18,11 +19,8 @@ CLIENT_ID = '462887418296-9a67ol2li3j8nr918im4m9rjejmsommn.apps.googleuserconten
 @api_view(["POST"])
 @permission_classes((AllowAny,))
 def login(request):
-    token = request.data.get("user_token")
+    user_token = request.data.get("user_token")
+    session_token = google_authenticate(user_token)
 
-    # (Receive token by HTTPS POST)
-    # ...
-
-
-    return Response({'token': token.key},
+    return Response({'session_token': session_token},
                     status=HTTP_200_OK)

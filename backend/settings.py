@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'devnode-backend-test.herokuapp.com',
     '127.0.0.1',
+    'localhost',
 ]
 
 AUTH_USER_MODEL = 'users.User'
