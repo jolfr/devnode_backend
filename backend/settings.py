@@ -29,6 +29,9 @@ ALLOWED_HOSTS = [
     'devnode-backend-test.herokuapp.com',
     '127.0.0.1',
 ]
+
+AUTH_USER_MODEL = 'app.User'
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 

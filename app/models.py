@@ -2,8 +2,10 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
+
 
 class Topic(models.Model):
     """A topic the user is learning about"""
@@ -12,6 +14,7 @@ class Topic(models.Model):
     def __str__(self):
         """Return a string representation of the model"""
         return self.text
+
 
 class Entry(models.Model):
     """Something specific learned about a topic"""
@@ -25,3 +28,8 @@ class Entry(models.Model):
     def __str__(self):
         """Return a string representation of the model"""
         return self.text[:50] + "..."
+
+
+class User(AbstractUser):
+    pass
+
