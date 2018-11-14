@@ -10,6 +10,8 @@ psycopg2 = "*"
 whitenoise = "*"
 djangorestframework = "*"
 requests = "*"
+google = "*"
+google-api-python-client = "*"
 
 [requires]
 python_version = "3.6.6"
