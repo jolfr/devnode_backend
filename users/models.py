@@ -11,7 +11,7 @@ class User(AbstractUser):
     user_id = models.CharField(max_length=1024)
     email = models.CharField(max_length=256)
     name = models.CharField(max_length=256)
-    picture = models.TextField
+    picture = models.CharField(max_length=1024)
     given_name = models.CharField(max_length=256)
     family_name = models.CharField(max_length=256)
     date_joined = models.DateTimeField(auto_now_add=True)
