@@ -9,6 +9,7 @@ gunicorn = "*"
 psycopg2 = "*"
 whitenoise = "*"
 djangorestframework = "*"
+requests = "*"
 
 [requires]
 python_version = "3.6.6"

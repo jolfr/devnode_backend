@@ -19,12 +19,11 @@ from django.contrib import admin
 from django.conf.urls import url, include
 from rest_framework import routers
 from app import views
-from app.views import login
+from users.views import login, logout
 
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
 router.register(r'topics', views.TopicViewSet)
 router.register(r'entries', views.EntryViewSet)
 
@@ -33,5 +32,6 @@ router.register(r'entries', views.EntryViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
-    url(r'^login/', login)
+    url(r'^login', login),
+    url(r'^logout', logout)
 ]

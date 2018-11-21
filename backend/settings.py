@@ -28,7 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'devnode-backend-test.herokuapp.com',
     '127.0.0.1',
+    'localhost',
 ]
+
+AUTH_USER_MODEL = 'users.User'
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
@@ -46,6 +50,7 @@ INSTALLED_APPS = [
 
     # My apps
     'app',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +151,20 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
