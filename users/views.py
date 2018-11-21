@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
     HTTP_404_NOT_FOUND,
@@ -34,3 +34,9 @@ def login(request):
     return Response({'session_token': session_token},
                     status=HTTP_200_OK)
 
+@api_view(["GET"])
+@permission_classes((IsAuthenticated, ))
+def logout(request):
+    # simply delete the token to force a login
+    request.user.auth_token.delete()
+    return Response(status=HTTP_200_OK)
