@@ -10,7 +10,8 @@ import logging, traceback
 logger = logging.getLogger(__name__)
 UserModel = get_user_model()
 
-_GOOGLE_OAUTH2_CERTS_URL = 'https://www.googleapis.com/oauth2/v1/certs'
+sessionTokens = {}
+
 CLIENT_ID = '462887418296-9a67ol2li3j8nr918im4m9rjejmsommn.apps.googleusercontent.com'
 
 
@@ -20,6 +21,7 @@ def google_authenticate(token=None):
         # Specify the CLIENT_ID of the app that accesses the backend:
         # TODO authentication is failing at this point
         logger.error('Calling verify_oauth2_token')
+        # TODO Possibly need to pass full message to decode
         idinfo = id_token.verify_oauth2_token(token, requests.Request(), CLIENT_ID)
 
         # Or, if multiple clients access the backend server:
@@ -37,9 +39,6 @@ def google_authenticate(token=None):
         # ID token is valid. Get the user's Google Account ID from the decoded token.
         userid = idinfo['sub']
     except ValueError as e:
-        # Invalid
-        logger.error(traceback.format_exception(ValueError, e))
-        logger.error('Generic Error')
         return 'Generic Error'
 
     # checks whether user is in database, if not, configures new user
@@ -50,10 +49,11 @@ def google_authenticate(token=None):
 
     token, _ = Token.objects.get_or_create(user=user)
 
+    sessionTokens[token.key] = userid
     return token.key
 
 
-def configure_user(self, idinfo=None):
+def configure_user(idinfo=None):
     user_id = idinfo['sub']
     email = idinfo['email']
     name = idinfo['name']

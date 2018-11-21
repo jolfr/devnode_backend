@@ -32,5 +32,5 @@ router.register(r'entries', views.EntryViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
-    url(r'^login/', login)
+    url(r'^login', login)
 ]
