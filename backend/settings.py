@@ -173,5 +173,6 @@ LOGGING = {
 }
 
 CORS_ORIGIN_WHITELIST = (
-    'devnode-web-test.herokuapp.com'
+    'devnode-web-test.herokuapp.com',
+    'http://localhost:5000'
 )
